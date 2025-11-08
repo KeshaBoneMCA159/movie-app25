@@ -2,7 +2,7 @@
 const express = require('express')
 const server = express()
 const router = require('./routes/router') // Step 4 (after commit) connect to router
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3002
 
 //Step 1b Install and handle security
 const helmet = require('helmet')

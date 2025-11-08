@@ -1,9 +1,9 @@
 // Step 5 export router
 const express = require('express')
 const router = express.Router()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3002
 
-// Step 6 create root route http://localhost:3000/api
+// Step 6 create root route http://localhost:3002/api
 router.get('/api', (req, res)=> {
     //res.send('movie api') <=Test 2
     res.json({
