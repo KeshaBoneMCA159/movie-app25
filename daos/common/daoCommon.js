@@ -1,5 +1,6 @@
 // Step 8 connect to config database
 const con = require('../../config/dbconfig')
+const { queryAction } = require('../../helpers/queryAction')
 
 const daoCommon = {
 
@@ -10,20 +11,21 @@ const daoCommon = {
         con.execute(
             `SELECT * FROM ${table};`,
             (error, rows)=> {
-                if(!error) {
-                    if(rows.length === 1) {
-                        res.json(...rows)
-                    } else {
-                        res.json(rows)
-                    }
-                } else {
-                   console.log(`Dao Error: ${error}`) 
-                   res.json({
-                    "message": 'error',
-                    'table' : `${table}`,
-                    'error': error
-                   })
-                }
+                queryAction(res, error, rows, table)
+                // if(!error) {
+                //     if(rows.length === 1) {
+                //         res.json(...rows)
+                //     } else {
+                //         res.json(rows)
+                //     }
+                // } else {
+                //    console.log(`Dao Error: ${error}`) 
+                //    res.json({
+                //     "message": 'error',
+                //     'table' : `${table}`,
+                //     'error': error
+                //    })
+                // }
             }
         )
     },
@@ -32,16 +34,17 @@ const daoCommon = {
         con.execute(
             `SELECT * FROM ${table} WHERE ${table}_id = ${id};`,
             (error, rows)=> {
-                if(!error) {
-                    res.json(...rows)
-                } else {
-                    console.log(`Dao Error: ${error}`)
-                    res.json({
-                    "message": 'error',
-                    'table' : `${table}`,
-                    'error': error
-                   })
-                }
+                queryAction(res, error, rows, table)
+                // if(!error) {
+                //     res.json(...rows)
+                // } else {
+                //     console.log(`Dao Error: ${error}`)
+                //     res.json({
+                //     "message": 'error',
+                //     'table' : `${table}`,
+                //     'error': error
+                //    })
+                // }
             }
         )
     },
@@ -51,16 +54,21 @@ const daoCommon = {
         con.execute(
             `SELECT * FROM ${table} ORDER BY ${sorter};`,
             (error, rows)=> {
-                if(!error) {
-                    res.json(...rows)
-                } else {
-                    console.log(`Dao Error: ${error}`)
-                    res.json({
-                        "message": 'error',
-                        'table' : `${table}`,
-                        'error': error
-                    })
-                }
+                queryAction(res, error, rows, table)
+                // if(!error) {
+                //     if(rows.length === 1) {
+                //         res.json(...rows)
+                //     } else {
+                //         res.json(rows)
+                //     }
+                // } else {
+                //     console.log(`Dao Error: ${error}`)
+                //     res.json({
+                //         "message": 'error',
+                //         'table' : `${table}`,
+                //         'error': error
+                //     })
+                // }
             }
         )
     }

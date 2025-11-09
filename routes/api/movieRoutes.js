@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
 })
 
 // Step 15 create movie sort route http://localhost:3000/api/movie/sort/:sorter => (7th sanity check(It kinda WORKS but it only brings up 1 entry🤔))
+//(8th sanity check(LOL small mistake fixed. Now it works🤩))
 router.get('/sort/:sorter', (req, res) => {
     dao.sort(res, dao.table, req.params.sorter)
 })
