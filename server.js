@@ -2,7 +2,7 @@
 const express = require('express')
 const server = express()
 const router = require('./routes/router') // Step 4 (after commit) connect to router
-const PORT = process.env.PORT || 3002
+const PORT = process.env.PORT || 3000
 
 //Step 1b Install and handle security
 const helmet = require('helmet')
@@ -25,5 +25,5 @@ server.use(express.json())
 server.use(express.urlencoded({ extended: true}))
 server.use('/', router) // Step 4b import router
 
-// Step 1a 1st Test => Check terminal
+// Step 1a (1st sanity check) => Check terminal
 server.listen(PORT, ()=> console.log(`It was working a second ago`))
