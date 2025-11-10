@@ -1,0 +1,8 @@
+#Error handling
+#GET http://localhost:3000/foo/bar
+
+#Root route
+#GET http://localhost:3000/api/movie
+
+#Single movie by id
+#GET http://localhost:3000/api/movie/1

@@ -1,5 +1,5 @@
 // Step 21 create query action helper function
-const queryAction =(obj, e,r, t)=> {
+const queryAction =(obj, e, r, t)=> {
 
     if (!e) {
         if (r.length === 1) {

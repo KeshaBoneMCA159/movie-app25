@@ -11,7 +11,7 @@ const daoCommon = {
         con.execute(
             `SELECT * FROM ${table};`,
             (error, rows)=> {
-                queryAction(res, error, rows, table)
+                queryAction(res, error, rows, table) // <= Step 22 use query action helper
                 // if(!error) {
                 //     if(rows.length === 1) {
                 //         res.json(...rows)
@@ -34,7 +34,7 @@ const daoCommon = {
         con.execute(
             `SELECT * FROM ${table} WHERE ${table}_id = ${id};`,
             (error, rows)=> {
-                queryAction(res, error, rows, table)
+                queryAction(res, error, rows, table) // <= Step 22
                 // if(!error) {
                 //     res.json(...rows)
                 // } else {
@@ -54,7 +54,7 @@ const daoCommon = {
         con.execute(
             `SELECT * FROM ${table} ORDER BY ${sorter};`,
             (error, rows)=> {
-                queryAction(res, error, rows, table)
+                queryAction(res, error, rows, table) // <= Step 22
                 // if(!error) {
                 //     if(rows.length === 1) {
                 //         res.json(...rows)
