@@ -7,7 +7,7 @@ const router = require('express').Router()
 const { movieDao: dao } = require('../../daos/dao')
 
 router.get('/', (req, res) => {
-    dao.findAll(req, res, dao.table)
+    dao.findAll(res, dao.table)
 })
 
 // Step 15 create movie sort route http://localhost:3000/api/movie/sort/:sorter => (7th sanity check(It kinda WORKS but it only brings up 1 entry🤔))
@@ -16,9 +16,14 @@ router.get('/sort/:sorter', (req, res) => {
     dao.sort(res, dao.table, req.params.sorter)
 })
 
-// Step 14 create movie by id route http://localhost:3000/api/movie/:id => (6th sanity check(WORKS!!!))
-router.get('/:id', (req, res) => {
+// Step 14 create movie by id route http://localhost:3000/api/get_movie/:id => (6th sanity check(WORKS!!!))
+router.get('/get_movie/:id', (req, res) => {
     dao.findById(res, dao.table, req.params.id)
+})
+
+// Step 23 create movie ratings route http://localhost:3000/api/by-rating/:rating => (9th sanity check(WORKS!!!))
+router.get('/by-rating/:rating', (req, res) => {
+    dao.findMoviesByRating(res, dao.table, req.params.rating)
 })
 
 module.exports = router

@@ -40,9 +40,10 @@ ORDER BY m.movie_id;`;
         )
     },
 
-    findMoviesByRatings: (res, table)=> {
-        con.execute(
-            `SELECT * FROM ${table} WHERE rating IS NOT NULL`,
+    findMoviesByRating: (res, table, ratingString)=> {
+        con.query(
+            `SELECT * FROM ?? WHERE rating = ?`,
+            [table, ratingString],
             (error, rows)=> {
                 queryAction(res, error, rows)
             }
